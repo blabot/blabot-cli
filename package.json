@@ -1,0 +1,26 @@
+{
+  "name": "blabot-cli",
+  "version": "0.0.1",
+  "description": "CLI for Blabot engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blabot/blabot-cli.git"
+  },
+  "keywords": [
+    "blabot",
+    "cli"
+  ],
+  "author": "Tomas Kuba <tomas.kuba.cz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blabot/blabot-cli/issues"
+  },
+  "homepage": "https://github.com/blabot/blabot-cli",
+  "dependencies": {
+    "commander": "^2.8.1"
+  }
+}
