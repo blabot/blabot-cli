@@ -5,7 +5,7 @@ Command line interface for Blabot engine
 
 ## Installation
 
-    $ npm install blabot-cli
+    $ npm install -g blabot-cli
 
 ## Use
 
