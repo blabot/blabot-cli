@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var B = require('blabot-core');
+var fs = require('fs');
+
+var dictionaryName, paragraphsCount = 1;
+
+program
+  .usage('<n> <dictionary>')
+  .arguments('<n> <dictionary>')
+  .action(function (count, dictionary) {
+    paragraphsCount = count;
+    dictionaryName = dictionary;
+  })
+  .parse(process.argv);
+
+if (typeof dictionaryName === 'undefined') {
+  program.outputHelp();
+  process.exit(1);
+}
+
+if (isNaN(paragraphsCount)) {
+  console.error('\n  Error: Count of paragraphs must be a number\n');
+  process.exit(1);
+}
+
+if (!fs.existsSync(dictionaryName)) {
+  console.error('\n  Error: Can’t find file \'' + dictionaryName + '\'\n');
+  process.exit(1);
+}
+
+var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
+
+console.log(B.makeParagraphs(dict, paragraphsCount).join('\n'));

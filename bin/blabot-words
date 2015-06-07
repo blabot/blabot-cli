@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var B = require('blabot-core');
+var fs = require('fs');
+
+var dictionaryName;
+
+program
+  .usage('<dictionary>')
+  .arguments('<dictionary>')
+  .action(function (dictionary) {
+    dictionaryName = dictionary;
+  })
+  .parse(process.argv);
+
+if (typeof dictionaryName === 'undefined') {
+  program.outputHelp();
+  process.exit(1);
+}
+
+if (!fs.existsSync(dictionaryName)) {
+  console.error('\n  Error: Can’t find file \'' + dictionaryName + '\'');
+  process.exit(1);
+}
+
+var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
+
+console.log(B.makeSentence(dict));

@@ -1,0 +1,22 @@
+{
+  "meta":{
+    "name": "Slovak dictionary",
+    "description": "Default Slovak Blabot dictionary template",
+    "author": "",
+    "created": "",
+    "updated": ""
+  },
+  "config":{
+    "normalizingRules": [
+      ["\\.\\.\\.", "."],
+      ["\\s+", " "],
+      [" , ", ", "]
+    ],
+    "badWords": ["kur","píč", "kokot", "mrd", "srá", "jeb"],
+    "specialWordChars": "—.",
+    "sentenceDelimiters": "!.?…",
+    "language": "sk"
+  },
+  "words": {},
+  "sentences":[]
+}

@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+program
+  .version(require('../node_modules/blabot-core/package.json').version)
+  .command('init <name>', 'initiate new dictionary')
+  //.command('parse [dictionary] [text]', '')
+  .command('sentence <dictionary>', 'generate one sentence')
+  .command('sentences <n> <dictionary>', 'generate N sentences')
+  .command('paragraph <dictionary>', 'generate paragraph with random sentences (5–10)')
+  .command('paragraphs <n> <dictionary>', 'generate N sentences')
+  .parse(process.argv);

@@ -1,0 +1,22 @@
+{
+  "meta":{
+    "name": "Default dictionary",
+    "description": "Default Blabot dictionary template",
+    "author": "",
+    "created": "",
+    "updated": ""
+  },
+  "config":{
+    "normalizingRules": [
+      ["\\.\\.\\.", "."],
+      ["\\s+", " "],
+      [" , ", ", "]
+    ],
+    "badWords": [],
+    "specialWordChars": "’'—.",
+    "sentenceDelimiters": "!.?…",
+    "language": "en"
+  },
+  "words": {},
+  "sentences":[]
+}

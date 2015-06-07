@@ -1,0 +1,18 @@
+{
+  "meta":{
+    "name": "",
+    "description": "",
+    "author": "",
+    "created": "",
+    "updated": ""
+  },
+  "config":{
+    "normalizingRules": [],
+    "badWords": [],
+    "specialWordChars": "",
+    "sentenceDelimiters": "",
+    "language": "nn"
+  },
+  "words": {},
+  "sentences":[]
+}

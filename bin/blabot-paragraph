@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var B = require('blabot-core');
+var fs = require('fs');
+
+var dictionaryName;
+
+program
+  .usage('<dictionary>')
+  .arguments('<dictionary>')
+  .action(function (dictionary) {
+    dictionaryName = dictionary;
+  })
+  .parse(process.argv);
+
+if (typeof dictionaryName === 'undefined') {
+  program.outputHelp();
+  process.exit(1);
+}
+
+if (!fs.existsSync(dictionaryName)) {
+  console.error('\n  Error: Can’t find file \'' + dictionaryName + '\'\n');
+  process.exit(1);
+}
+
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive)
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
+
+console.log(B.makeParagraph(dict, getRandomInt(5,10)));

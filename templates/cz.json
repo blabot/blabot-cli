@@ -1,0 +1,22 @@
+{
+  "meta":{
+    "name": "Czech dictionary",
+    "description": "Default Czech Blabot dictionary template",
+    "author": "",
+    "created": "",
+    "updated": ""
+  },
+  "config":{
+    "normalizingRules": [
+      ["\\.\\.\\.", "."],
+      ["\\s+", " "],
+      [" , ", ", "]
+    ],
+    "badWords": ["kur","píč", "čurá", "mrd", "srá"],
+    "specialWordChars": "—.",
+    "sentenceDelimiters": "!.?…",
+    "language": "cz"
+  },
+  "words": {},
+  "sentences":[]
+}

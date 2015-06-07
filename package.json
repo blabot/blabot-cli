@@ -2,9 +2,12 @@
   "name": "blabot-cli",
   "version": "0.0.1",
   "description": "CLI for Blabot engine",
-  "main": "index.js",
+  "main": "bin/blabot",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "blabot": "bin/blabot.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/blabot/blabot-cli",
   "dependencies": {
+    "blabot-core": "^0.2.0",
     "commander": "^2.8.1"
   }
 }

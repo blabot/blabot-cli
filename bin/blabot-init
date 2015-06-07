@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var fs = require('fs');
+var dictionaryName;
+
+program
+  //.option('-c, --config', 'use ')
+  .arguments('<name>')
+  .action(function (name) {
+    dictionaryName = name.replace(/[^A-Za-z0-9]/gmi, '-').toLowerCase();
+  })
+  .parse(process.argv);
+
+if (typeof dictionaryName === 'undefined') {
+  program.outputHelp();
+}
+
+var defaultDictionary = {
+  'words': {
+    '1': ['á'],
+    '2': ['bb'],
+    '3': ["č'č"],
+    '4': ['ďď—ď'],
+    '5': ['ěéěéě'],
+    '6': ["ffff'f"],
+    '7': ['1234.67'],
+    '8': ["apaců'ka", "kávecuka"],
+    '10': ["fúndé.můka", "fundé—káve"]
+  },
+  'sentences': [
+    "<1> <2>, <3>?",
+    "<4> - <5>!",
+    "<6> <7>.",
+    "<8> – <10>!",
+    "<10>, <8>…"
+  ]
+};
+
+var jsonDictionary = JSON.stringify(defaultDictionary, null, '  ');
+var dictionaryFileName = dictionaryName + '.json';
+
+fs.writeFile(dictionaryFileName, jsonDictionary, function (err) {
+  if (err) throw err;
+  console.log('Dictionary \'' + dictionaryFileName + '\' was created');
+});
