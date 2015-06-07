@@ -32,4 +32,4 @@ if (!fs.existsSync(dictionaryName)) {
 
 var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
 
-console.log(B.makeSentences(dict, sentencesCount).join('\n'));
+console.log(B.getSentences(dict, sentencesCount).join('\n'));

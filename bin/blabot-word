@@ -20,10 +20,10 @@ if (typeof dictionaryName === 'undefined') {
 }
 
 if (!fs.existsSync(dictionaryName)) {
-  console.error('\n  Error: Can’t find file \'' + dictionaryName + '\'\n');
+  console.error('\n  Error: Can’t find file \'' + dictionaryName + '\'');
   process.exit(1);
 }
 
 var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
 
-console.log(B.getParagraph(dict));
+console.log(B.getWord(dict));

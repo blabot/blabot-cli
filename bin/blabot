@@ -6,8 +6,10 @@ program
   .version(require('../node_modules/blabot-core/package.json').version)
   .command('init <name>', 'initiate new dictionary')
   //.command('parse [dictionary] [text]', '')
-  .command('sentence <dictionary>', 'generate one sentence')
+  .command('word <dictionary>', 'generate word')
+  .command('words <n> <dictionary>', 'generate N words')
+  .command('sentence <dictionary>', 'generate sentence')
   .command('sentences <n> <dictionary>', 'generate N sentences')
-  .command('paragraph <dictionary>', 'generate paragraph with random sentences (5–10)')
-  .command('paragraphs <n> <dictionary>', 'generate N sentences')
+  .command('paragraph <dictionary>', 'generate paragraph')
+  .command('paragraphs <n> <dictionary>', 'generate N paragraphs')
   .parse(process.argv);
