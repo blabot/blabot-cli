@@ -9,6 +9,7 @@
   "bin": {
     "blabot": "bin/blabot.js"
   },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/blabot/blabot-cli.git"
