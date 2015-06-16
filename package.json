@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "blabot": "bin/blabot.js"
+    "blabot": "./bin/blabot.js"
   },
   "preferGlobal": true,
   "repository": {
