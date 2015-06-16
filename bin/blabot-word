@@ -28,3 +28,4 @@ if (!fs.existsSync(dictionaryName)) {
 var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
 
 console.log(B.getWords(dict, program.count).join('\n'));
+

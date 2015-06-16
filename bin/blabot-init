@@ -19,7 +19,6 @@ var templateFilePath = __dirname + '/../templates/' + program.type + '.json';
 var dict = JSON.parse(fs.readFileSync(templateFilePath, 'utf-8'));
 dict.meta.created = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
 dict.meta.updated = dict.meta.created;
-//console.log(dict);
 var jsonDict = JSON.stringify(dict, null, 2);
 var dictFileName = dictName.replace(/[^A-Za-z0-9]/gmi, '-').toLowerCase() + '.json';
 

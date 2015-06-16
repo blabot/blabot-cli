@@ -12,3 +12,4 @@ program
   .command('sentence [options] <dictionary>', 'generate sentence(s)')
   .command('paragraph [options] <dictionary>', 'generate paragraph(s)')
   .parse(process.argv);
+
