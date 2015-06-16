@@ -1,7 +1,7 @@
 {
   "meta":{
-    "name": "Default dictionary",
-    "description": "Default Blabot dictionary template",
+    "name": "English dictionary",
+    "description": "Default English Blabot dictionary template",
     "author": "",
     "created": "",
     "updated": ""
@@ -12,7 +12,7 @@
       ["\\s+", " "],
       [" , ", ", "]
     ],
-    "badWords": [],
+    "badWords": ["shit", "fuck", "bitch", "ass", "cock", "cunt"],
     "specialWordChars": "’'—.",
     "sentenceDelimiters": "!.?…",
     "language": "en"

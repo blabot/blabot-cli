@@ -4,10 +4,11 @@ var program = require('commander');
 var B = require('blabot-core');
 var fs = require('fs');
 
-var dictionaryName;
+var dictionaryName, paragraphsCount = 1;
 
 program
-  .usage('<dictionary>')
+  .option('-c, --count <n>', 'count of paragraphs', /\d+/, 1)
+  .usage('[options] <dictionary>')
   .arguments('<dictionary>')
   .action(function (dictionary) {
     dictionaryName = dictionary;
@@ -26,4 +27,4 @@ if (!fs.existsSync(dictionaryName)) {
 
 var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
 
-console.log(B.getParagraph(dict));
+console.log(B.getParagraphs(dict, program.count).join('\n'));

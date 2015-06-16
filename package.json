@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/blabot/blabot-cli",
   "dependencies": {
-    "blabot-core": "^0.3.0",
+    "blabot-core": "^0.4.0",
     "commander": "^2.8.1"
   }
 }

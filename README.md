@@ -9,15 +9,18 @@ Command line interface for Blabot engine
 
 ## Use
 
+Create new dictionary "mydict":
+
+    $ blabot init mydict
+
+Add some text into dictionary:
+
+    $ blabot parse mydict.json "Hey, you! Is this some text? Yep, it is good text" 
+
+Generate some blabols:
+    
+    $ blabot sentence mydict.json
+
+For more help see:
+
     $ blabot --help
-
-    $ blabot init <n> -t <type> <dictionary>
-    $ blabot parse <text> <dictionary>
-
-    $ blabot word <n> <dictionary>
-    $ blabot sentence <n> <dictionary>
-    $ blabot paragraph <n> <dictionary>
-
-
-    
-    

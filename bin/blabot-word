@@ -4,9 +4,10 @@ var program = require('commander');
 var B = require('blabot-core');
 var fs = require('fs');
 
-var dictionaryName;
+var dictionaryName, wordsCount = 1;
 
 program
+  .option('-c, --count <n>', 'count of words', /\d+/, 1)
   .usage('<dictionary>')
   .arguments('<dictionary>')
   .action(function (dictionary) {
@@ -20,10 +21,10 @@ if (typeof dictionaryName === 'undefined') {
 }
 
 if (!fs.existsSync(dictionaryName)) {
-  console.error('\n  Error: Can’t find file \'' + dictionaryName + '\'');
+  console.error('\n  Error: Can’t find file \'' + dictionaryName + '\'\n');
   process.exit(1);
 }
 
 var dict = JSON.parse(fs.readFileSync(dictionaryName, 'utf-8'));
 
-console.log(B.getWord(dict));
+console.log(B.getWords(dict, program.count).join('\n'));

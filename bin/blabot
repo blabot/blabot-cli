@@ -4,12 +4,11 @@ var program = require('commander');
 
 program
   .version(require('../node_modules/blabot-core/package.json').version)
-  .command('init <name>', 'initiate new dictionary')
-  //.command('parse [dictionary] [text]', '')
-  .command('word <dictionary>', 'generate word')
-  .command('words <n> <dictionary>', 'generate N words')
-  .command('sentence <dictionary>', 'generate sentence')
-  .command('sentences <n> <dictionary>', 'generate N sentences')
-  .command('paragraph <dictionary>', 'generate paragraph')
-  .command('paragraphs <n> <dictionary>', 'generate N paragraphs')
+  .usage('[command] [options] <dictionary|name> [text]')
+  .command('init [options] <name>', 'initiate new dictionary')
+  .command('empty <dictionary>', 'erase words & sentences from dictionary')
+  .command('parse [options] <dictionary> <text>', 'parse text/file into dictionary')
+  .command('word [options] <dictionary>', 'generate word(s)')
+  .command('sentence [options] <dictionary>', 'generate sentence(s)')
+  .command('paragraph [options] <dictionary>', 'generate paragraph(s)')
   .parse(process.argv);

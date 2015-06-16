@@ -2,45 +2,28 @@
 
 var program = require('commander');
 var fs = require('fs');
-var dictionaryName;
+var dictName;
 
 program
-  //.option('-c, --config', 'use ')
+  .option('-t, --type [name]', 'en, cz, sk, empty', /^(en|cz|sk|empty)$/i, 'en')
   .arguments('<name>')
   .action(function (name) {
-    dictionaryName = name.replace(/[^A-Za-z0-9]/gmi, '-').toLowerCase();
+    dictName = name;
   })
   .parse(process.argv);
 
-if (typeof dictionaryName === 'undefined') {
+if (typeof dictName === 'undefined') {
   program.outputHelp();
 }
+var templateFilePath = __dirname + '/../templates/' + program.type + '.json';
+var dict = JSON.parse(fs.readFileSync(templateFilePath, 'utf-8'));
+dict.meta.created = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+dict.meta.updated = dict.meta.created;
+//console.log(dict);
+var jsonDict = JSON.stringify(dict, null, 2);
+var dictFileName = dictName.replace(/[^A-Za-z0-9]/gmi, '-').toLowerCase() + '.json';
 
-var defaultDictionary = {
-  'words': {
-    '1': ['á'],
-    '2': ['bb'],
-    '3': ["č'č"],
-    '4': ['ďď—ď'],
-    '5': ['ěéěéě'],
-    '6': ["ffff'f"],
-    '7': ['1234.67'],
-    '8': ["apaců'ka", "kávecuka"],
-    '10': ["fúndé.můka", "fundé—káve"]
-  },
-  'sentences': [
-    "<1> <2>, <3>?",
-    "<4> - <5>!",
-    "<6> <7>.",
-    "<8> – <10>!",
-    "<10>, <8>…"
-  ]
-};
-
-var jsonDictionary = JSON.stringify(defaultDictionary, null, '  ');
-var dictionaryFileName = dictionaryName + '.json';
-
-fs.writeFile(dictionaryFileName, jsonDictionary, function (err) {
+fs.writeFile(dictFileName, jsonDict, function (err) {
   if (err) throw err;
-  console.log('Dictionary \'' + dictionaryFileName + '\' was created');
+  console.log('Dictionary \'' + dictFileName + '\' was created');
 });

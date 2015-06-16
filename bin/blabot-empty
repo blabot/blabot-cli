@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var B = require('blabot-core');
+var fs = require('fs');
+
+var dictFilePath, textIn;
+
+program
+  .usage('<dictionary>')
+  .arguments('<dictionary>')
+  .action(function (dictionary) {
+    dictFilePath = dictionary;
+  })
+  .parse(process.argv);
+
+if (typeof dictFilePath === 'undefined') {
+  program.outputHelp();
+  process.exit(1);
+}
+
+if (!fs.existsSync(dictFilePath)) {
+  console.error('\n  Error: Can’t find file \'' + dictFilePath + '\'\n');
+  process.exit(1);
+}
+
+var dict = JSON.parse(fs.readFileSync(dictFilePath, 'utf-8'));
+dict.sentences = [];
+dict.words = {};
+dict.meta.updated = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+var dictAsJSON = JSON.stringify(dict, null, 2);
+
+fs.writeFile(dictFilePath, dictAsJSON, function (err) {
+  if (err) throw err;
+  console.log('Dictionary \'' + dictFilePath + '\' was emptied');
+});

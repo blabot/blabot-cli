@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var B = require('blabot-core');
+var fs = require('fs');
+
+var dictFilePath, textIn;
+
+program
+  .option('-f, --file <file>', 'file encoded in utf-8')
+  .usage('<dictionary> [text]')
+  .arguments('<dictionary> [text]')
+  .action(function (dictionary, text) {
+    dictFilePath = dictionary;
+    textIn = text || '';
+  })
+  .parse(process.argv);
+
+if (typeof dictFilePath === 'undefined') {
+  program.outputHelp();
+  process.exit(1);
+}
+
+if (typeof program.file !== 'undefined') {
+  if (!fs.existsSync(program.file)) {
+    console.error('\n  Error: Can’t find file \'' + program.file + '\'\n');
+    process.exit(1);
+  } else {
+    textIn += ' ' + fs.readFileSync(program.file, 'utf-8')
+  }
+}
+
+if (!fs.existsSync(dictFilePath)) {
+  console.error('\n  Error: Can’t find file \'' + dictFilePath + '\'\n');
+  process.exit(1);
+}
+
+var dict = JSON.parse(fs.readFileSync(dictFilePath, 'utf-8'));
+B.parse(dict, textIn);
+dict.meta.updated = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+var dictAsJSON = JSON.stringify(dict, null, 2);
+
+fs.writeFile(dictFilePath, dictAsJSON, function (err) {
+  if (err) throw err;
+  console.log('Dictionary \'' + dictFilePath + '\' was updated');
+});
