@@ -1,17 +1,19 @@
 {
   "meta":{
     "name": "",
+    "nameLocal": "",
     "description": "",
+    "descriptionLocal": "",
     "author": "",
     "created": "",
-    "updated": ""
+    "updated": "",
+    "language": ""
   },
   "config":{
     "normalizingRules": [],
     "badWords": [],
     "specialWordChars": "",
-    "sentenceDelimiters": "",
-    "language": "nn"
+    "sentenceDelimiters": ""
   },
   "words": {},
   "sentences":[]

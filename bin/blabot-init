@@ -5,7 +5,7 @@ var fs = require('fs');
 var dictName;
 
 program
-  .option('-t, --type [name]', 'en, cz, sk, empty', /^(en|cz|sk|empty)$/i, 'en')
+  .option('-t, --type [name]', 'en, cs, sk, empty', /^(en|cz|sk|empty)$/i, 'en')
   .arguments('<name>')
   .action(function (name) {
     dictName = name;

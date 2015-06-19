@@ -1,10 +1,13 @@
 {
   "meta":{
     "name": "English dictionary",
-    "description": "Default English Blabot dictionary template",
+    "nameLocal": "English dictionary",
+    "description": "Default English dictionary template",
+    "descriptionLocal": "Default English dictionary template",
     "author": "",
     "created": "",
-    "updated": ""
+    "updated": "",
+    "language": "en"
   },
   "config":{
     "normalizingRules": [
@@ -14,8 +17,7 @@
     ],
     "badWords": ["shit", "fuck", "bitch", "ass", "cock", "cunt"],
     "specialWordChars": "’'—.",
-    "sentenceDelimiters": "!.?…",
-    "language": "en"
+    "sentenceDelimiters": "!.?…"
   },
   "words": {},
   "sentences":[]
